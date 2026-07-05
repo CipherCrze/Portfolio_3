@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+  /* ─── Color Palette ─────────────────────────────────── */
+  --color-ink: #0b0b0f;
+  --color-ink-2: #131318;
+  --color-ink-3: #1b1b22;
+  --color-paper: #ede9e1;
+  --color-paper-dim: #918f97;
+  --color-paper-faint: #57565d;
+  --color-brass: #c9a464;
+  --color-brass-bright: #ddbd85;
+  --color-brass-soft: rgba(201, 164, 100, 0.5);
+  --color-ferrari: #e10600;
+  --color-line: rgba(237, 233, 225, 0.09);
+  --color-line-strong: rgba(237, 233, 225, 0.18);
+
+  /* ─── Font Families ─────────────────────────────────── */
+  --font-display: var(--font-newsreader), serif;
+  --font-body: var(--font-ibm-plex-sans), sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), monospace;
+
+  /* ─── Container ─────────────────────────────────────── */
+  --container-max: 1120px;
+
+  /* ─── Easing ────────────────────────────────────────── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── Base Resets ─────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+img, svg {
+  display: block;
+}
+
+/* ─── Selection ───────────────────────────────────────── */
+::selection {
+  background: rgba(201, 164, 100, 0.28);
+  color: var(--color-paper);
+}
+
+/* ─── Scrollbar ───────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brass-soft);
+}
+
+/* ─── Focus ───────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Skip Link ───────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 1000;
+  background: var(--color-brass);
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  padding: 10px 16px;
+  border-radius: 2px;
+  transition: top 0.2s var(--ease-out-expo);
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ─── Reduced Motion ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
